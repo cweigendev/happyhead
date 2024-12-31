@@ -1,0 +1,11 @@
+<svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0, 20)">
+    <path d="M60 20l20 -20l20 20" stroke="#333333" stroke-width="8"/>
+    <path d="M140 20l20 -20l20 20" stroke="#333333" stroke-width="8"/>
+    <circle cx="100" cy="10" r="10" fill="#00E5B0"/>
+    <circle cx="180" cy="10" r="10" fill="#00E5B0"/>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#333333">ADAMSON AHDOOT</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#00E5B0">INJURY ATTORNEYS</text>
+  </g>
+</svg>
+
