@@ -22,8 +22,8 @@ const MeshDebugPanel: React.FC<MeshDebugPanelProps> = ({ modelPath, selectedPart
   const [meshes, setMeshes] = useState<MeshInfo[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Load GLTF at component level (conditionally)
-  const gltfResult = modelPath ? useGLTF(modelPath) : null;
+  // Load GLTF at component level (always call hook, handle null path)
+  const gltfResult = useGLTF(modelPath || '/models/default.glb');
   
   // Enhanced detection logic (same as ModelViewer)
   const detectPartFromMeshName = (meshName: string): string => {

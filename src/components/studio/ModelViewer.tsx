@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useRef, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, Center } from '@react-three/drei';
 import { Product } from '@/app/studio/page';
@@ -44,7 +44,7 @@ const Model = React.memo(function Model({
   console.log('🏗️ Model component RE-RENDERING with reflectiveness:', reflectiveness, 'for path:', modelPath); // Debug log
 
   // Initialize all hooks first, before any early returns
-  const modelRef = useRef<THREE.Group>(null);
+
   const [layerState, setLayerState] = useState<LayerState>({ layers: [], activeLayerId: null });
   const [loadedTextures, setLoadedTextures] = useState<Map<string, THREE.Texture>>(new Map());
   const [previewTexture, setPreviewTexture] = useState<THREE.Texture | null>(null);
@@ -673,10 +673,9 @@ const Model = React.memo(function Model({
                 
                 // Get texture dimensions to calculate aspect ratio
                 const textureAspect = logoTexture.image ? logoTexture.image.width / logoTexture.image.height : 1;
-                const logoWidth = logoTexture.image?.width || 1;
-                const logoHeight = logoTexture.image?.height || 1;
+
                 
-                let effectiveLogoScale = userLogoScale;
+                const effectiveLogoScale = userLogoScale;
                 
                 // Invert the scale for texture coordinates
                 const baseScale = 1 / effectiveLogoScale;
@@ -983,8 +982,7 @@ const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer(
     reflectiveness // Add reflectiveness to debug log
   });
 
-  const [layerState, setLayerState] = useState<LayerState>({ layers: [], activeLayerId: null });
-  const [modelState, setModelState] = useState<ModelState | null>(null);
+
   const [modelHeight, setModelHeight] = useState(0.2); // Default model height
   const [cameraDistance, setCameraDistance] = useState(10); // Default camera distance
   const [cameraY, setCameraY] = useState(0); // Default camera Y position
@@ -994,19 +992,7 @@ const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer(
     console.log(`🎯 TARGET PART CHANGED TO: "${targetPart}"`);
   }, [targetPart]);
 
-  // Subscribe to layer changes for the main component
-  useEffect(() => {
-    const unsubscribe = layerManager.subscribe(setLayerState);
-    setLayerState(layerManager.getState());
-    return unsubscribe;
-  }, []);
 
-  // Subscribe to model state changes
-  useEffect(() => {
-    const unsubscribe = modelStateManager.subscribe(setModelState);
-    setModelState(modelStateManager.getCurrentState());
-    return unsubscribe;
-  }, []);
 
   // Handle product switching - this is the key fix for the carryover bug
   useEffect(() => {
