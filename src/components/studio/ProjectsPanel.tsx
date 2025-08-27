@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { projectManager, ProjectState } from '@/lib/projectManager';
+import Image from 'next/image';
+import { projectManager } from '@/lib/projectManager';
 import { modelStateManager } from '@/lib/modelStateManager';
 import { layerManager } from '@/lib/layerManager';
 import { Product } from '@/app/studio/page';
@@ -120,7 +121,7 @@ const ProjectsPanel: React.FC<ProjectsPanelProps> = ({
               if (layerData.materialId) {
                 layerManager.updateLayer(layer.id, {
                   materialId: layerData.materialId,
-                  materialType: layerData.materialType
+                  materialType: layerData.materialType as "pbr" | "simple" | undefined
                 });
               }
               if (!layerData.isVisible) {
@@ -281,9 +282,11 @@ const ProjectsPanel: React.FC<ProjectsPanelProps> = ({
                     {/* Thumbnail */}
                     <div className="w-full h-32 bg-gray-700 flex items-center justify-center">
                       {project.thumbnail ? (
-                        <img
+                        <Image
                           src={project.thumbnail}
                           alt={project.name}
+                          width={128}
+                          height={128}
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;

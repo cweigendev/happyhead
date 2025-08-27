@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, Suspense } from 'react';
-import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
+import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -289,7 +289,7 @@ const PartSelector: React.FC<PartSelectorProps> = ({ modelPath, selectedPart, on
           <pointLight position={[-3, 3, 3]} intensity={2.0} color="#ffffff" />
           <pointLight position={[3, 3, 3]} intensity={2.0} color="#ffffff" />
           <pointLight position={[0, 3, -3]} intensity={1.6} color="#ffffff" />
-          <Environment preset="studio" background={false} blur={0.5} intensity={0.3} rotation={[0, Math.PI / 2, 0]} />
+          <Environment preset="studio" background={false} blur={0.5} />
 
           {modelPath && (
             <Center>

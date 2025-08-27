@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Product } from '@/app/studio/page';
 import { modelManager } from '@/lib/modelManager';
 import { ButtonCta } from '@/components/ui/ButtonCta';
@@ -152,12 +153,14 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
                         }}
                       >
                         {(subcategory.id === 'child-resistant-jars') ? (
-                          <img
+                          <Image
                             src="/images/thumbnails/glass-plastic-containers/jar.png"
                             alt={subcategory.name}
+                            width={80}
+                            height={80}
                             className="max-w-full max-h-full object-contain"
-                            style={{ 
-                              maxWidth: '80%', 
+                            style={{
+                              maxWidth: '80%',
                               maxHeight: '80%',
                               filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15))'
                             }}
@@ -178,12 +181,14 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
                             }}
                           />
                         ) : (subcategory.id === 'pouch') ? (
-                          <img
+                          <Image
                             src="/images/thumbnails/glass-plastic-containers/pouch.png"
                             alt={subcategory.name}
+                            width={80}
+                            height={80}
                             className="max-w-full max-h-full object-contain"
-                            style={{ 
-                              maxWidth: '80%', 
+                            style={{
+                              maxWidth: '80%',
                               maxHeight: '80%',
                               filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15))'
                             }}
@@ -204,12 +209,14 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
                             }}
                           />
                         ) : (subcategory.id === 'blkjar') ? (
-                          <img
+                          <Image
                             src="/images/thumbnails/glass-plastic-containers/blkjar.png"
                             alt={subcategory.name}
+                            width={80}
+                            height={80}
                             className="max-w-full max-h-full object-contain"
-                            style={{ 
-                              maxWidth: '80%', 
+                            style={{
+                              maxWidth: '80%',
                               maxHeight: '80%',
                               filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15))'
                             }}
@@ -230,12 +237,14 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
                             }}
                           />
                         ) : (subcategory.id === 'child-resistant-glass-jar') ? (
-                          <img
+                          <Image
                             src="/images/thumbnails/glass-plastic-containers/glassjar.png"
                             alt={subcategory.name}
+                            width={95}
+                            height={95}
                             className="max-w-full max-h-full object-contain"
-                            style={{ 
-                              maxWidth: '95%', 
+                            style={{
+                              maxWidth: '95%',
                               maxHeight: '95%',
                               filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15))'
                             }}

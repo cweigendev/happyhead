@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Product } from '@/app/studio/page';
 import { layerManager, CustomizationLayer, LayerState } from '@/lib/layerManager';
 import { modelStateManager } from '@/lib/modelStateManager';
@@ -75,9 +76,11 @@ const LayerItemWithControls: React.FC<LayerItemProps> = ({ layer, isActive, onSe
     } else if (layer.type === 'artwork') {
       return (
         <div className="w-6 h-6 rounded-md border border-gray-500 shadow-sm overflow-hidden flex-shrink-0 bg-gray-600">
-          <img
+          <Image
             src={layer.value}
             alt={layer.name}
+            width={24}
+            height={24}
             className="w-full h-full object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { layerManager, CustomizationLayer, LayerState } from '@/lib/layerManager';
+import { layerManager, LayerState } from '@/lib/layerManager';
 import { ButtonCta } from '../ui/ButtonCta';
 
 interface LayerPanelProps {

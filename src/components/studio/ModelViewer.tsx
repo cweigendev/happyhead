@@ -6,7 +6,7 @@ import { OrbitControls, useGLTF, Environment, Center } from '@react-three/drei';
 import { Product } from '@/app/studio/page';
 import { layerManager, LayerState } from '@/lib/layerManager';
 import { materialManager } from '@/lib/materialManager';
-import { modelStateManager, ModelState } from '@/lib/modelStateManager';
+import { modelStateManager } from '@/lib/modelStateManager';
 
 import CameraHeightController from './CameraHeightController';
 
@@ -52,14 +52,9 @@ const Model = React.memo(function Model({
   const [originalMaterials, setOriginalMaterials] = useState<Map<string, THREE.MeshStandardMaterial>>(new Map());
   const [modelScale, setModelScale] = useState<[number, number, number]>([1, 1, 1]); // Default until ModelStateManager provides the correct scale
 
-  // Conditionally load GLTF only if modelPath exists
-  const gltfResult = modelPath ? useGLTF(modelPath, true) : null; // Enable DRACO compression for large files
+  // Always load GLTF - use a default path if none provided to avoid conditional hook calls
+  const gltfResult = useGLTF(modelPath || '/models/default.glb', true); // Enable DRACO compression for large files
   const scene = gltfResult?.scene;
-
-  if (!modelPath) {
-    console.error('No model path provided');
-    return <ModelLoader />;
-  }
 
   // Subscribe to layer changes
   useEffect(() => {
@@ -937,7 +932,8 @@ const Model = React.memo(function Model({
 
 
 
-  if (!scene) {
+  // Handle the case where scene is not available without early return
+  if (!scene || !modelPath) {
     return null;
   }
 
@@ -1110,9 +1106,9 @@ const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer(
               minDistance={0.5}
               maxDistance={20}
               mouseButtons={{
-                LEFT: 0, // Left button for rotation
-                MIDDLE: 1, // Middle button for zoom
-                RIGHT: -1 // Disable right button to allow CameraHeightController
+                LEFT: THREE.MOUSE.ROTATE, // Left button for rotation
+                MIDDLE: THREE.MOUSE.DOLLY, // Middle button for zoom
+                RIGHT: undefined // Disable right button to allow CameraHeightController
               }}
             />
 

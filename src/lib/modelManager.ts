@@ -86,6 +86,9 @@ export class ModelManager {
         throw error;
       }
     }
+    if (!this.catalog) {
+      throw new Error('Failed to load catalog');
+    }
     return this.catalog;
   }
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { layerManager } from '@/lib/layerManager';
 import MaterialSelector from './MaterialSelector';
 import { ButtonCta } from '../ui/ButtonCta';
@@ -336,7 +337,7 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
     console.log(`🔄 Pre-loading texture for ${type}: ${url}`);
     try {
       const texture = await new Promise<void>((resolve, reject) => {
-        const loader = new Image();
+        const loader = new window.Image();
         loader.onload = () => {
           console.log(`✅ Texture pre-loaded successfully for ${type}: ${url}`);
           resolve();
@@ -620,9 +621,11 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
                             title={artwork.name}
                           >
                             <div className="w-full h-full bg-gray-700 rounded-lg overflow-hidden">
-                              <img
+                              <Image
                                 src={artwork.url}
                                 alt={artwork.name}
+                                width={64}
+                                height={64}
                                 className="w-full h-full object-cover"
                                 onError={(e) => {
                                   const target = e.target as HTMLImageElement;
@@ -684,9 +687,11 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
                           title={artwork.name}
                         >
                           <div className="w-full h-full bg-gray-700 rounded-lg overflow-hidden">
-                            <img
+                            <Image
                               src={artwork.url}
                               alt={artwork.name}
+                              width={64}
+                              height={64}
                               className="w-full h-full object-cover"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
@@ -987,9 +992,11 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
                           title={logo.name}
                         >
                           <div className="w-full h-full bg-gray-700 rounded-lg overflow-hidden">
-                            <img
+                            <Image
                               src={logo.url}
                               alt={logo.name}
+                              width={32}
+                              height={32}
                               className="w-full h-full object-cover"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;

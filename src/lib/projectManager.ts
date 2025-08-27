@@ -1,7 +1,7 @@
 // Project Management for XTRACT Studio
 // Handles saving and loading complete model states as projects
 
-import { CustomizationLayer, LayerState } from './layerManager';
+import { LayerState } from './layerManager';
 import { ModelState } from './modelStateManager';
 
 export interface ProjectState {
