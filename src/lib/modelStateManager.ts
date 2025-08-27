@@ -1,6 +1,8 @@
 // Model State Management for XTRACT Studio
 // Handles model-specific state like scaling, materials, and other properties
 
+import * as THREE from 'three';
+
 export interface ModelState {
   productId: string;
   modelPath: string;
@@ -8,7 +10,7 @@ export interface ModelState {
   cameraDistance: number;
   cameraY: number;
   modelHeight: number;
-  materialState: Map<string, any>; // Stores original materials per mesh
+  materialState: Map<string, THREE.Material>; // Stores original materials per mesh
   customizationState: {
     selectedColor: string;
     hasColorChanged: boolean;

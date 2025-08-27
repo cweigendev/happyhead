@@ -76,7 +76,7 @@ export class ModelManager {
     return ModelManager.instance;
   }
 
-  async loadCatalog(): Promise<any> {
+  async loadCatalog(): Promise<Catalog> {
     if (!this.catalog) {
       try {
         const response = await fetch('/models/catalog.json');

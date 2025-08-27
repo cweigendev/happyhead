@@ -80,7 +80,7 @@ const StudioPage = () => {
   // Make reset function available globally for debugging (development only)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      (window as Record<string, unknown>).resetStudioState = resetAllStudioState;
+      (window as any).resetStudioState = resetAllStudioState;
     }
   }, []);
 

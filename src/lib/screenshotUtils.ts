@@ -148,7 +148,7 @@ export class ScreenshotCapture {
       // Split long product names
       const maxWidth = width - 40;
       const words = productName.split(' ');
-      let lines: string[] = [];
+      const lines: string[] = [];
       let currentLine = '';
       
       for (const word of words) {
