@@ -47,7 +47,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({
     onSelect?.();
 
     // Disable orbit controls during drag
-    const orbitControls = event.target?.parent?.parent?.userData?.orbitControls;
+    const orbitControls = (event.target as any)?.parent?.parent?.userData?.orbitControls;
     if (orbitControls) {
       orbitControls.enabled = false;
     }
@@ -64,7 +64,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({
     setIsDragging(false);
 
     // Re-enable orbit controls
-    const orbitControls = event.target?.parent?.parent?.userData?.orbitControls;
+    const orbitControls = (event.target as any)?.parent?.parent?.userData?.orbitControls;
     if (orbitControls) {
       orbitControls.enabled = true;
     }
