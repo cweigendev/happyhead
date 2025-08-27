@@ -1,0 +1,99 @@
+{
+  "category": "glass-plastic-containers",
+  "subcategory": "pouch",
+  "models": [
+    {
+      "id": "pouch",
+      "name": "Child Resistant Pouch",
+      "description": "Professional child-resistant pouch for secure storage and transport",
+      "file": "pouch.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/pouch.jpg",
+      "specifications": {
+        "capacity": "1/8 oz",
+        "material": "plastic",
+        "closure_type": "child_resistant",
+        "dimensions": {
+          "height": "80mm",
+          "width": "60mm",
+          "depth": "15mm"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "BagColor",
+          "type": "color",
+          "uv_map": "BagColor_uv",
+          "target_part": "base",
+          "material_name": "BagColor",
+          "description": "Base pouch color - changes when user selects colors"
+        },
+        {
+          "name": "Artwork",
+          "type": "logo",
+          "uv_map": "Artwork_uv",
+          "target_part": "artwork",
+          "material_name": "Artwork",
+          "position": "front_center",
+          "max_size": "50x40mm",
+          "description": "Artwork placement area - targets Artwork material layer for user uploads"
+        }
+      ],
+      "mesh_mapping": {
+        "description": "Mesh name to part mapping for layer detection",
+        "mapping": {
+          "base_parts": ["Pouch", "Plane.001", "Plane", "pouch", "base", "main", "container", "bag", "packet"],
+          "artwork_parts": ["Pouch", "Plane.001", "Plane", "pouch", "artwork", "logo_area"],
+          "top_parts": ["seal", "closure", "top", "zip", "opening"],
+          "middle_parts": ["middle", "center", "fold"]
+        },
+        "material_mapping": {
+          "BagColor": {
+            "target_meshes": ["Pouch", "Plane.001"],
+            "material_slot": "BagColor"
+          },
+          "Artwork": {
+            "target_meshes": ["Plane.001"],
+            "material_slot": "Artwork"
+          }
+        },
+        "detection_rules": {
+          "fallback_to_base": "If no specific part detected and contains 'pouch' or 'plane', treat as base",
+          "case_insensitive": "All mesh name detection is case insensitive",
+          "material_priority": "Use material_mapping for precise targeting"
+        }
+      }
+    }
+  ],
+  "default_materials": [
+    {
+      "name": "matte_plastic",
+      "type": "plastic",
+      "properties": {
+        "transparency": 0.0,
+        "roughness": 0.4,
+        "metallic": 0.0,
+        "ior": 1.4
+      }
+    },
+    {
+      "name": "glossy_plastic",
+      "type": "plastic",
+      "properties": {
+        "transparency": 0.0,
+        "roughness": 0.1,
+        "metallic": 0.0,
+        "ior": 1.4
+      }
+    }
+  ],
+  "default_colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF4444",
+    "#44FF44",
+    "#4444FF",
+    "#FFFF44",
+    "#FF44FF",
+    "#44FFFF"
+  ]
+}

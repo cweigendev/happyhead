@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --ring: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-satoshi);
+  --font-mono: var(--font-satoshi-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #09090b;
+    --foreground: #ededed;
+    --muted: #191919;
+    --muted-foreground: #737373;
+    --ring: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-satoshi), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom slider styles for layer controls */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #6b7280 0%, #6b7280 100%);
+  background-size: 100% 3px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 16px;
+  border-radius: 1.5px;
+}
+
+/* Slider track - pill-shaped line */
+input[type="range"].slider::-webkit-slider-track {
+  height: 3px;
+  background: #6b7280;
+  border-radius: 1.5px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="range"].slider::-moz-range-track {
+  height: 3px;
+  background: #6b7280;
+  border-radius: 1.5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Slider thumb - white to gray gradient with drop shadow, centered on line */
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 40% 40%, #ffffff 0%, #e5e7eb 30%, #9ca3af 60%, #6b7280 100%);
+  border: 1px solid #4b5563;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -4px; /* Adjusted to properly center with 3px track */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"].slider::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 40% 40%, #ffffff 0%, #e5e7eb 30%, #9ca3af 60%, #6b7280 100%);
+  border: 1px solid #4b5563;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -4px; /* Added to properly center with 3px track */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects */
+input[type="range"].slider:hover::-webkit-slider-thumb {
+  background: radial-gradient(circle at 40% 40%, #ffffff 0%, #f3f4f6 25%, #d1d5db 55%, #9ca3af 100%);
+  transform: scale(1.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+input[type="range"].slider:hover::-moz-range-thumb {
+  background: radial-gradient(circle at 40% 40%, #ffffff 0%, #f3f4f6 25%, #d1d5db 55%, #9ca3af 100%);
+  transform: scale(1.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Focus styles */
+input[type="range"].slider:focus {
+  outline: none;
+}
+
+input[type="range"].slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+input[type="range"].slider:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark theme scrollbar styles */
+.scrollbar-dark {
+  scrollbar-width: thin;
+  scrollbar-color: #2e2e2e transparent;
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
+
+/* Hide scrollbar for chat-style textarea */
+.chat-textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-textarea {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

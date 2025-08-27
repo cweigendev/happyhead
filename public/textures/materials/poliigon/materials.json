@@ -1,0 +1,153 @@
+{
+  "version": "1.0.0",
+  "description": "High-quality PBR materials from Poliigon",
+  "materials": [
+    {
+      "id": "example-wood-001",
+      "name": "Premium Wood",
+      "category": "wood",
+      "description": "High-quality wood texture with realistic grain",
+      "resolution": "2K",
+      "maps": {
+        "diffuse": "/textures/materials/poliigon/wood/Wood001_2K_Color.jpg",
+        "normal": "/textures/materials/poliigon/wood/Wood001_2K_Normal.jpg",
+        "roughness": "/textures/materials/poliigon/wood/Wood001_2K_Roughness.jpg",
+        "displacement": "/textures/materials/poliigon/wood/Wood001_2K_Displacement.jpg",
+        "ao": "/textures/materials/poliigon/wood/Wood001_2K_AO.jpg"
+      },
+      "properties": {
+        "roughness": 0.8,
+        "metallic": 0.0,
+        "transparency": 0.0,
+        "displacementScale": 0.1,
+        "normalScale": 1.0
+      },
+      "tiling": {
+        "repeatU": 1.0,
+        "repeatV": 1.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    },
+    {
+      "id": "example-metal-001",
+      "name": "Brushed Metal",
+      "category": "metal",
+      "description": "Realistic brushed metal surface",
+      "resolution": "2K",
+      "maps": {
+        "diffuse": "/textures/materials/poliigon/metal/Metal001_2K_Color.jpg",
+        "normal": "/textures/materials/poliigon/metal/Metal001_2K_Normal.jpg",
+        "roughness": "/textures/materials/poliigon/metal/Metal001_2K_Roughness.jpg",
+        "metallic": "/textures/materials/poliigon/metal/Metal001_2K_Metallic.jpg",
+        "ao": "/textures/materials/poliigon/metal/Metal001_2K_AO.jpg"
+      },
+      "properties": {
+        "roughness": 0.3,
+        "metallic": 1.0,
+        "transparency": 0.0,
+        "normalScale": 1.0
+      },
+      "tiling": {
+        "repeatU": 2.0,
+        "repeatV": 2.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    },
+    {
+      "id": "example-fabric-001",
+      "name": "Premium Fabric",
+      "category": "fabric",
+      "description": "High-quality fabric texture",
+      "resolution": "2K",
+      "maps": {
+        "diffuse": "/textures/materials/poliigon/fabric/Fabric001_2K_Color.jpg",
+        "normal": "/textures/materials/poliigon/fabric/Fabric001_2K_Normal.jpg",
+        "roughness": "/textures/materials/poliigon/fabric/Fabric001_2K_Roughness.jpg",
+        "ao": "/textures/materials/poliigon/fabric/Fabric001_2K_AO.jpg"
+      },
+      "properties": {
+        "roughness": 0.9,
+        "metallic": 0.0,
+        "transparency": 0.0,
+        "normalScale": 1.5
+      },
+      "tiling": {
+        "repeatU": 3.0,
+        "repeatV": 3.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    },
+    {
+      "id": "poliigon-leather-cowhide-var1",
+      "name": "Cowhide Leather (Natural)",
+      "category": "leather",
+      "description": "Premium cowhide leather with natural grain - Variant 1",
+      "resolution": "4K",
+      "maps": {
+        "diffuse": "/textures/materials/leather/FabricLeatherCowhide001_COL_VAR1_4K.jpg",
+        "normal": "/textures/materials/leather/FabricLeatherCowhide001_NRM_4K.jpg",
+        "roughness": "/textures/materials/leather/FabricLeatherCowhide001_GLOSS_4K.jpg",
+        "ao": "/textures/materials/leather/FabricLeatherCowhide001_AO_4K.jpg"
+      },
+      "properties": {
+        "roughness": 0.75,
+        "metallic": 0.0,
+        "transparency": 0.0,
+        "normalScale": 1.2
+      },
+      "tiling": {
+        "repeatU": 1.0,
+        "repeatV": 1.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    },
+    {
+      "id": "poliigon-leather-cowhide-var2",
+      "name": "Cowhide Leather (Brown)",
+      "category": "leather",
+      "description": "Premium cowhide leather with natural grain - Variant 2",
+      "resolution": "4K",
+      "maps": {
+        "diffuse": "/textures/materials/leather/FabricLeatherCowhide001_COL_VAR2_4K.jpg",
+        "normal": "/textures/materials/leather/FabricLeatherCowhide001_NRM_4K.jpg",
+        "roughness": "/textures/materials/leather/FabricLeatherCowhide001_GLOSS_4K.jpg",
+        "ao": "/textures/materials/leather/FabricLeatherCowhide001_AO_4K.jpg"
+      },
+      "properties": {
+        "roughness": 0.75,
+        "metallic": 0.0,
+        "transparency": 0.0,
+        "normalScale": 1.2
+      },
+      "tiling": {
+        "repeatU": 1.0,
+        "repeatV": 1.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    },
+    {
+      "id": "poliigon-leather-cowhide-var3",
+      "name": "Cowhide Leather (Dark)",
+      "category": "leather",
+      "description": "Premium cowhide leather with natural grain - Variant 3",
+      "resolution": "4K",
+      "maps": {
+        "diffuse": "/textures/materials/leather/FabricLeatherCowhide001_COL_VAR3_4K.jpg",
+        "normal": "/textures/materials/leather/FabricLeatherCowhide001_NRM_4K.jpg",
+        "roughness": "/textures/materials/leather/FabricLeatherCowhide001_GLOSS_4K.jpg",
+        "ao": "/textures/materials/leather/FabricLeatherCowhide001_AO_4K.jpg"
+      },
+      "properties": {
+        "roughness": 0.75,
+        "metallic": 0.0,
+        "transparency": 0.0,
+        "normalScale": 1.2
+      },
+      "tiling": {
+        "repeatU": 1.0,
+        "repeatV": 1.0
+      },
+      "targetParts": ["top", "middle", "base", "all"]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "glass-plastic-containers",
+  "subcategory": "blkjar",
+  "models": [
+    {
+      "id": "blkjar",
+      "name": "BlkJar",
+      "description": "Professional black glass storage jar with optimized artwork mapping",
+      "file": "blkjar.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/blkjar.jpg",
+      "specifications": {
+        "capacity": "1/8 oz",
+        "material": "black_glass",
+        "cap_type": "standard",
+        "dimensions": {
+          "height": "45mm",
+          "diameter": "35mm"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "jar_body",
+          "type": "material",
+          "uv_map": "jar_body_uv",
+          "target_part": "base",
+          "description": "Main black glass jar body"
+        },
+        {
+          "name": "cap",
+          "type": "color",
+          "uv_map": "cap_uv",
+          "target_part": "top",
+          "description": "Jar cap/lid"
+        },
+        {
+          "name": "label_area",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "20x15mm",
+          "target_part": "base",
+          "description": "Logo placement on jar body"
+        }
+      ],
+      "mesh_mapping": {
+        "description": "Mesh name to part mapping for layer detection",
+        "mapping": {
+          "top_parts": ["cap", "lid", "top", "cover", "closure", "001", "Cylinder.001", "Cylinder_001"],
+          "base_parts": ["body", "jar", "base", "main", "container", "002", "Cylinder.002", "Cylinder_002", "blkjar", "blk_jar", "glass", "vessel"],
+          "middle_parts": ["middle", "center", "ring"]
+        },
+        "detection_rules": {
+          "fallback_to_base": "If no specific part detected and contains 'jar', treat as base",
+          "case_insensitive": "All mesh name detection is case insensitive"
+        }
+      }
+    }
+  ],
+  "default_materials": [
+    {
+      "name": "black_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.9,
+        "roughness": 0.1,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    },
+    {
+      "name": "frosted_black_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.7,
+        "roughness": 0.3,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    }
+  ],
+  "default_colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF4444",
+    "#44FF44",
+    "#4444FF",
+    "#FFFF44",
+    "#FF44FF",
+    "#44FFFF"
+  ]
+}

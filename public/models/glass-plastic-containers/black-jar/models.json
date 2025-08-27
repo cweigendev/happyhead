@@ -1,0 +1,46 @@
+{
+  "models": [
+    {
+      "id": "black-jar-001",
+      "name": "Black Jar",
+      "description": "Professional black glass storage jar",
+      "file": "blackjar.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/black-jar.png",
+      "parts": [
+        {
+          "id": "jar-top",
+          "name": "Lid/Cap",
+          "description": "Top closure part of the jar",
+          "customizable": true,
+          "mesh_names": ["top", "cap", "lid", "cover", "upper", "head", "cork", "closure", "stopper"]
+        },
+        {
+          "id": "jar-body", 
+          "name": "Main Body",
+          "description": "Main cylindrical body of the jar",
+          "customizable": true,
+          "mesh_names": ["body", "main", "center", "container", "vessel", "jar"]
+        },
+        {
+          "id": "jar-base",
+          "name": "Base/Bottom",
+          "description": "Bottom part of the jar",
+          "customizable": true,
+          "mesh_names": ["base", "bottom", "foundation", "foot", "lower", "floor"]
+        }
+      ],
+      "materials": {
+        "glass": {
+          "transparency": 0.1,
+          "roughness": 0.1,
+          "metalness": 0.0
+        }
+      },
+      "metadata": {
+        "format": "glb",
+        "created": "2025-01-21",
+        "version": "1.0"
+      }
+    }
+  ]
+}

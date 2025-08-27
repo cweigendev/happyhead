@@ -1,0 +1,2 @@
+Placeholder for jar.jpg thumbnail image
+Replace this file with a 512x512px JPG image of your jar model

@@ -1,0 +1,140 @@
+{
+  "category": "glass-plastic-containers",
+  "subcategory": "child-resistant-jars",
+  "models": [
+    {
+      "id": "jar",
+      "name": "Child-Resistant Jar",
+      "description": "Professional child-resistant jar for secure storage",
+      "file": "jar.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/jar.jpg",
+      "specifications": {
+        "capacity": "1/8 oz",
+        "material": "glass",
+        "cap_type": "child_resistant",
+        "dimensions": {
+          "height": "45mm",
+          "diameter": "35mm"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "jar_body",
+          "type": "material",
+          "uv_map": "jar_body_uv"
+        },
+        {
+          "name": "cap",
+          "type": "color",
+          "uv_map": "cap_uv"
+        },
+        {
+          "name": "label_area",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "20x15mm"
+        }
+      ]
+    },
+    {
+      "id": "child-resistant-jar-medium",
+      "name": "Medium Child-Resistant Jar",
+      "description": "1/4 oz concentrate jar with child-resistant cap",
+      "file": "child-resistant-jar-medium.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/child-resistant-jar-medium.jpg",
+      "specifications": {
+        "capacity": "1/4 oz",
+        "material": "glass",
+        "cap_type": "child_resistant",
+        "dimensions": {
+          "height": "55mm",
+          "diameter": "40mm"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "jar_body",
+          "type": "material",
+          "uv_map": "jar_body_uv"
+        },
+        {
+          "name": "cap",
+          "type": "color",
+          "uv_map": "cap_uv"
+        },
+        {
+          "name": "label_area",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "25x18mm"
+        }
+      ]
+    },
+    {
+      "id": "child-resistant-jar-large",
+      "name": "Large Child-Resistant Jar",
+      "description": "1 oz flower jar with child-resistant cap",
+      "file": "child-resistant-jar-large.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/child-resistant-jar-large.jpg",
+      "specifications": {
+        "capacity": "1 oz",
+        "material": "glass",
+        "cap_type": "child_resistant",
+        "dimensions": {
+          "height": "75mm",
+          "diameter": "55mm"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "jar_body",
+          "type": "material",
+          "uv_map": "jar_body_uv"
+        },
+        {
+          "name": "cap",
+          "type": "color",
+          "uv_map": "cap_uv"
+        },
+        {
+          "name": "label_area",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "35x25mm"
+        }
+      ]
+    }
+  ],
+  "default_materials": [
+    {
+      "name": "clear_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.9,
+        "roughness": 0.1,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    },
+    {
+      "name": "frosted_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.7,
+        "roughness": 0.3,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    }
+  ],
+  "default_colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF4444",
+    "#44FF44",
+    "#4444FF",
+    "#FFFF44",
+    "#FF44FF",
+    "#44FFFF"
+  ]
+}

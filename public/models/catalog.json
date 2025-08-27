@@ -1,0 +1,127 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-01-21",
+  "categories": [
+    {
+      "id": "glass-plastic-containers",
+      "name": "Glass & Plastic Containers",
+      "description": "Professional packaging solutions for various industries",
+      "subcategories": [
+        {
+          "id": "child-resistant-jars",
+          "name": "Child-Resistant Jar",
+          "description": "Various sizes (concentrate to ounce jars)",
+          "config_file": "/models/glass-plastic-containers/child-resistant-jars/models.json",
+          "model_count": 1
+        },
+        {
+          "id": "child-resistant-glass-jar",
+          "name": "Glass Jar",
+          "description": "Premium glass storage jar",
+          "config_file": "/models/glass-plastic-containers/child-resistant-glass-jar/models.json",
+          "model_count": 1
+        },
+
+        {
+          "id": "blkjar",
+          "name": "BlkJar",
+          "description": "Professional black glass storage jar with optimized artwork mapping",
+          "config_file": "/models/glass-plastic-containers/blkjar/models.json",
+          "model_count": 1
+        },
+        {
+          "id": "pouch",
+          "name": "Child Resistant Pouch",
+          "description": "Professional child-resistant pouch for secure storage and transport",
+          "config_file": "/models/glass-plastic-containers/pouch/models.json",
+          "model_count": 1
+        },
+        {
+          "id": "child-resistant-bottles",
+          "name": "Child-Resistant Bottle",
+          "description": "Multiple formats",
+          "config_file": "/models/glass-plastic-containers/child-resistant-bottles/models.json",
+          "model_count": 0
+        },
+        {
+          "id": "pet-containers",
+          "name": "PET Container",
+          "description": "Food-grade plastic alternatives",
+          "config_file": "/models/glass-plastic-containers/pet-containers/models.json",
+          "model_count": 0
+        },
+        {
+          "id": "preroll-tubes",
+          "name": "Pre-roll Tube",
+          "description": "Single and multi-pack options",
+          "config_file": "/models/glass-plastic-containers/preroll-tubes/models.json",
+          "model_count": 0
+        }
+      ]
+    },
+    {
+      "id": "apparel-clothing",
+      "name": "Apparel & Clothing",
+      "description": "Custom apparel for branding and promotional use",
+      "subcategories": [
+        {
+          "id": "tshirts",
+          "name": "T-shirts",
+          "description": "Various materials and brands",
+          "config_file": "/models/apparel-clothing/tshirts/models.json",
+          "model_count": 3
+        },
+        {
+          "id": "polos",
+          "name": "Polos",
+          "description": "Professional and casual options",
+          "config_file": "/models/apparel-clothing/polos/models.json",
+          "model_count": 0
+        },
+        {
+          "id": "hoodies",
+          "name": "Hoodies",
+          "description": "Different styles and weights",
+          "config_file": "/models/apparel-clothing/hoodies/models.json",
+          "model_count": 0
+        },
+        {
+          "id": "hats",
+          "name": "Hats",
+          "description": "Beanies, snapbacks, various styles",
+          "config_file": "/models/apparel-clothing/hats/models.json",
+          "model_count": 0
+        }
+      ]
+    }
+  ],
+  "supported_formats": {
+    "models": [".glb", ".gltf"],
+    "textures": [".jpg", ".png", ".webp"],
+    "images": [".jpg", ".png", ".webp"]
+  },
+  "upload_limits": {
+    "max_model_size": "10MB",
+    "max_texture_size": "5MB",
+    "max_image_size": "2MB",
+    "max_polygon_count": 50000
+  },
+  "customization_types": [
+    {
+      "type": "color",
+      "description": "Solid color application to model surfaces",
+      "supported_formats": ["hex", "rgb", "hsl"]
+    },
+    {
+      "type": "material",
+      "description": "Texture and material property application",
+      "supported_maps": ["diffuse", "normal", "roughness", "metallic", "ao", "emission"]
+    },
+    {
+      "type": "logo",
+      "description": "Logo and graphic application to designated areas",
+      "supported_formats": [".png", ".jpg", ".svg"],
+      "max_resolution": "2048x2048"
+    }
+  ]
+}

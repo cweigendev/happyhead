@@ -1,0 +1,2 @@
+Placeholder for placeholder.jpg
+This should be a 1x1 transparent or white pixel image

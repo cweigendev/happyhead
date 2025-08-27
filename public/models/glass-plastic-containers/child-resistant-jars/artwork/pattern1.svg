@@ -1,0 +1,10 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="stripes" patternUnits="userSpaceOnUse" width="20" height="20">
+            <rect width="10" height="20" fill="#ff6b6b"/>
+            <rect x="10" width="10" height="20" fill="#4ecdc4"/>
+          </pattern>
+        </defs>
+        <rect width="512" height="512" fill="url(#stripes)"/>
+        <text x="256" y="256" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="24" font-family="Arial">Pattern Design</text>
+      </svg>

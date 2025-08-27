@@ -1,0 +1,89 @@
+{
+  "category": "glass-plastic-containers",
+  "subcategory": "child-resistant-glass-jar",
+  "models": [
+    {
+      "id": "glassjar",
+      "name": "Glass Jar",
+      "description": "Premium glass storage jar with modern design",
+      "file": "glassjar2.glb",
+      "thumbnail": "/images/thumbnails/glass-plastic-containers/jar.png",
+      "specifications": {
+        "capacity": "Custom",
+        "material": "glass",
+        "cap_type": "standard",
+        "dimensions": {
+          "height": "Auto",
+          "diameter": "Auto"
+        }
+      },
+      "customization_areas": [
+        {
+          "name": "jar_body",
+          "type": "material",
+          "uv_map": "jar_body_uv",
+          "target_part": "base",
+          "description": "Main glass jar body"
+        },
+        {
+          "name": "cap",
+          "type": "color",
+          "uv_map": "cap_uv",
+          "target_part": "top",
+          "description": "Jar cap/lid"
+        },
+        {
+          "name": "label_area",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "30x20mm",
+          "target_part": "base",
+          "description": "Logo placement on jar body"
+        }
+      ],
+      "mesh_mapping": {
+        "description": "Mesh name to part mapping for layer detection",
+        "mapping": {
+          "top_parts": ["cap", "lid", "top", "cover", "closure", "001"],
+          "base_parts": ["body", "jar", "base", "main", "container", "002"],
+          "middle_parts": ["middle", "center", "ring"]
+        },
+        "detection_rules": {
+          "fallback_to_base": "If no specific part detected and contains 'jar', treat as base"
+        }
+      }
+    }
+  ],
+  "default_materials": [
+    {
+      "name": "clear_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.9,
+        "roughness": 0.1,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    },
+    {
+      "name": "frosted_glass",
+      "type": "glass",
+      "properties": {
+        "transparency": 0.7,
+        "roughness": 0.3,
+        "metallic": 0.0,
+        "ior": 1.5
+      }
+    }
+  ],
+  "default_colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF4444",
+    "#44FF44",
+    "#4444FF",
+    "#FFFF44",
+    "#FF44FF",
+    "#44FFFF"
+  ]
+}

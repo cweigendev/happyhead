@@ -1,0 +1,255 @@
+{
+  "version": "1.0.0",
+  "materials": [
+    {
+      "id": "plastic",
+      "name": "Plastic",
+      "category": "synthetic",
+      "variants": [
+        {
+          "id": "plastic-white",
+          "name": "White Plastic",
+          "maps": {
+            "diffuse": "/textures/materials/plastic/plastic-white-diffuse.jpg",
+            "normal": "/textures/materials/plastic/plastic-white-normal.jpg",
+            "roughness": "/textures/materials/plastic/plastic-white-roughness.jpg",
+            "metallic": "/textures/materials/plastic/plastic-white-metallic.jpg"
+          },
+          "properties": {
+            "roughness": 0.3,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        },
+        {
+          "id": "plastic-black",
+          "name": "Black Plastic",
+          "maps": {
+            "diffuse": "/textures/materials/plastic/plastic-black-diffuse.jpg",
+            "normal": "/textures/materials/plastic/plastic-black-normal.jpg",
+            "roughness": "/textures/materials/plastic/plastic-black-roughness.jpg",
+            "metallic": "/textures/materials/plastic/plastic-black-metallic.jpg"
+          },
+          "properties": {
+            "roughness": 0.3,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "category": "metallic",
+      "variants": [
+        {
+          "id": "aluminum",
+          "name": "Aluminum",
+          "maps": {
+            "diffuse": "/textures/materials/metal/aluminum-diffuse.jpg",
+            "normal": "/textures/materials/metal/aluminum-normal.jpg",
+            "roughness": "/textures/materials/metal/aluminum-roughness.jpg",
+            "metallic": "/textures/materials/metal/aluminum-metallic.jpg"
+          },
+          "properties": {
+            "roughness": 0.2,
+            "metallic": 1.0,
+            "transparency": 0.0
+          }
+        },
+        {
+          "id": "steel",
+          "name": "Steel",
+          "maps": {
+            "diffuse": "/textures/materials/metal/steel-diffuse.jpg",
+            "normal": "/textures/materials/metal/steel-normal.jpg",
+            "roughness": "/textures/materials/metal/steel-roughness.jpg",
+            "metallic": "/textures/materials/metal/steel-metallic.jpg"
+          },
+          "properties": {
+            "roughness": 0.1,
+            "metallic": 1.0,
+            "transparency": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "category": "transparent",
+      "variants": [
+        {
+          "id": "clear-glass",
+          "name": "Clear Glass",
+          "maps": {
+            "diffuse": "/textures/materials/glass/clear-glass-diffuse.jpg",
+            "normal": "/textures/materials/glass/clear-glass-normal.jpg",
+            "roughness": "/textures/materials/glass/clear-glass-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.0,
+            "metallic": 0.0,
+            "transparency": 0.9,
+            "ior": 1.5
+          }
+        },
+        {
+          "id": "frosted-glass",
+          "name": "Frosted Glass",
+          "maps": {
+            "diffuse": "/textures/materials/glass/frosted-glass-diffuse.jpg",
+            "normal": "/textures/materials/glass/frosted-glass-normal.jpg",
+            "roughness": "/textures/materials/glass/frosted-glass-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.5,
+            "metallic": 0.0,
+            "transparency": 0.7,
+            "ior": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "fabric",
+      "name": "Fabric",
+      "category": "textile",
+      "variants": [
+        {
+          "id": "cotton-white",
+          "name": "White Cotton",
+          "maps": {
+            "diffuse": "/textures/materials/fabric/cotton-white-diffuse.jpg",
+            "normal": "/textures/materials/fabric/cotton-white-normal.jpg",
+            "roughness": "/textures/materials/fabric/cotton-white-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.8,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        },
+        {
+          "id": "cotton-black",
+          "name": "Black Cotton",
+          "maps": {
+            "diffuse": "/textures/materials/fabric/cotton-black-diffuse.jpg",
+            "normal": "/textures/materials/fabric/cotton-black-normal.jpg",
+            "roughness": "/textures/materials/fabric/cotton-black-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.8,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        },
+        {
+          "id": "polyester-blend",
+          "name": "Polyester Blend",
+          "maps": {
+            "diffuse": "/textures/materials/fabric/polyester-blend-diffuse.jpg",
+            "normal": "/textures/materials/fabric/polyester-blend-normal.jpg",
+            "roughness": "/textures/materials/fabric/polyester-blend-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.6,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "leather",
+      "name": "Leather",
+      "category": "natural",
+      "variants": [
+        {
+          "id": "leather-brown",
+          "name": "Brown Leather",
+          "maps": {
+            "diffuse": "/textures/materials/leather/leather-brown-diffuse.jpg",
+            "normal": "/textures/materials/leather/leather-brown-normal.jpg",
+            "roughness": "/textures/materials/leather/leather-brown-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.7,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        },
+        {
+          "id": "leather-black",
+          "name": "Black Leather",
+          "maps": {
+            "diffuse": "/textures/materials/leather/leather-black-diffuse.jpg",
+            "normal": "/textures/materials/leather/leather-black-normal.jpg",
+            "roughness": "/textures/materials/leather/leather-black-roughness.jpg"
+          },
+          "properties": {
+            "roughness": 0.7,
+            "metallic": 0.0,
+            "transparency": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "wood",
+      "name": "Wood",
+      "category": "natural",
+      "variants": [
+        {
+          "id": "oak",
+          "name": "Oak Wood",
+          "description": "Light, durable hardwood with prominent grain",
+          "maps": {
+            "diffuse": "/textures/materials/wood/oak-diffuse.svg",
+            "normal": "/textures/materials/wood/oak-normal.svg",
+            "roughness": "/textures/materials/wood/oak-roughness.svg"
+          },
+          "properties": {
+            "roughness": 0.75,
+            "metallic": 0.0,
+            "transparency": 0.0,
+            "color": "#CD853F"
+          }
+        },
+        {
+          "id": "walnut",
+          "name": "Walnut Wood",
+          "description": "Rich, dark hardwood with beautiful chocolate tones",
+          "maps": {
+            "diffuse": "/textures/materials/wood/walnut-diffuse.svg",
+            "normal": "/textures/materials/wood/walnut-normal.svg",
+            "roughness": "/textures/materials/wood/walnut-roughness.svg"
+          },
+          "properties": {
+            "roughness": 0.7,
+            "metallic": 0.0,
+            "transparency": 0.0,
+            "color": "#654321"
+          }
+        },
+        {
+          "id": "cherry",
+          "name": "Cherry Wood",
+          "description": "Warm, reddish hardwood with smooth finish",
+          "maps": {
+            "diffuse": "/textures/materials/wood/cherry-diffuse.svg",
+            "normal": "/textures/materials/wood/cherry-normal.svg",
+            "roughness": "/textures/materials/wood/cherry-roughness.svg"
+          },
+          "properties": {
+            "roughness": 0.65,
+            "metallic": 0.0,
+            "transparency": 0.0,
+            "color": "#D2691E"
+          }
+        }
+      ]
+    }
+  ]
+}

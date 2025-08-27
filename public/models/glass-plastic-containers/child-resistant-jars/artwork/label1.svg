@@ -1,0 +1,10 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+        <rect width="512" height="512" fill="#2c3e50"/>
+        <rect x="50" y="100" width="412" height="312" fill="#ecf0f1" rx="20"/>
+        <text x="256" y="180" text-anchor="middle" fill="#2c3e50" font-size="32" font-family="Arial" font-weight="bold">PRODUCT</text>
+        <text x="256" y="220" text-anchor="middle" fill="#2c3e50" font-size="24" font-family="Arial">LABEL</text>
+        <text x="256" y="280" text-anchor="middle" fill="#7f8c8d" font-size="16" font-family="Arial">Premium Quality</text>
+        <text x="256" y="320" text-anchor="middle" fill="#7f8c8d" font-size="14" font-family="Arial">Made with Care</text>
+        <rect x="100" y="350" width="312" height="2" fill="#bdc3c7"/>
+        <text x="256" y="380" text-anchor="middle" fill="#95a5a6" font-size="12" font-family="Arial">SKU: 12345</text>
+      </svg>

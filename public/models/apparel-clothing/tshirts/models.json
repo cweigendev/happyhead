@@ -1,0 +1,175 @@
+{
+  "category": "apparel-clothing",
+  "subcategory": "tshirts",
+  "models": [
+    {
+      "id": "tshirt-basic-crew",
+      "name": "Basic Crew Neck T-Shirt",
+      "description": "Classic crew neck t-shirt in various materials",
+      "file": "tshirt-basic-crew.glb",
+      "thumbnail": "/images/thumbnails/apparel-clothing/tshirt-basic-crew.jpg",
+      "specifications": {
+        "style": "crew_neck",
+        "fit": "regular",
+        "sleeve_type": "short",
+        "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+        "materials": ["cotton", "polyester", "cotton_blend"]
+      },
+      "customization_areas": [
+        {
+          "name": "front_chest",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "100x100mm",
+          "recommended_size": "80x80mm"
+        },
+        {
+          "name": "back_full",
+          "type": "logo",
+          "position": "back_center",
+          "max_size": "300x400mm",
+          "recommended_size": "250x300mm"
+        },
+        {
+          "name": "left_sleeve",
+          "type": "logo",
+          "position": "sleeve_left",
+          "max_size": "50x50mm",
+          "recommended_size": "40x40mm"
+        },
+        {
+          "name": "shirt_body",
+          "type": "material",
+          "uv_map": "shirt_body_uv"
+        }
+      ]
+    },
+    {
+      "id": "tshirt-v-neck",
+      "name": "V-Neck T-Shirt",
+      "description": "Classic v-neck t-shirt for a more refined look",
+      "file": "tshirt-v-neck.glb",
+      "thumbnail": "/images/thumbnails/apparel-clothing/tshirt-v-neck.jpg",
+      "specifications": {
+        "style": "v_neck",
+        "fit": "regular",
+        "sleeve_type": "short",
+        "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+        "materials": ["cotton", "polyester", "cotton_blend"]
+      },
+      "customization_areas": [
+        {
+          "name": "front_chest",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "100x100mm",
+          "recommended_size": "80x80mm"
+        },
+        {
+          "name": "back_full",
+          "type": "logo",
+          "position": "back_center",
+          "max_size": "300x400mm",
+          "recommended_size": "250x300mm"
+        },
+        {
+          "name": "shirt_body",
+          "type": "material",
+          "uv_map": "shirt_body_uv"
+        }
+      ]
+    },
+    {
+      "id": "tshirt-long-sleeve",
+      "name": "Long Sleeve T-Shirt",
+      "description": "Long sleeve t-shirt for cooler weather",
+      "file": "tshirt-long-sleeve.glb",
+      "thumbnail": "/images/thumbnails/apparel-clothing/tshirt-long-sleeve.jpg",
+      "specifications": {
+        "style": "crew_neck",
+        "fit": "regular",
+        "sleeve_type": "long",
+        "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+        "materials": ["cotton", "polyester", "cotton_blend"]
+      },
+      "customization_areas": [
+        {
+          "name": "front_chest",
+          "type": "logo",
+          "position": "front_center",
+          "max_size": "100x100mm",
+          "recommended_size": "80x80mm"
+        },
+        {
+          "name": "back_full",
+          "type": "logo",
+          "position": "back_center",
+          "max_size": "300x400mm",
+          "recommended_size": "250x300mm"
+        },
+        {
+          "name": "left_sleeve",
+          "type": "logo",
+          "position": "sleeve_left",
+          "max_size": "50x50mm",
+          "recommended_size": "40x40mm"
+        },
+        {
+          "name": "right_sleeve",
+          "type": "logo",
+          "position": "sleeve_right",
+          "max_size": "50x50mm",
+          "recommended_size": "40x40mm"
+        },
+        {
+          "name": "shirt_body",
+          "type": "material",
+          "uv_map": "shirt_body_uv"
+        }
+      ]
+    }
+  ],
+  "default_materials": [
+    {
+      "name": "cotton_white",
+      "type": "fabric",
+      "properties": {
+        "roughness": 0.8,
+        "metallic": 0.0,
+        "normal_intensity": 0.5
+      }
+    },
+    {
+      "name": "cotton_black",
+      "type": "fabric",
+      "properties": {
+        "roughness": 0.8,
+        "metallic": 0.0,
+        "normal_intensity": 0.5
+      }
+    },
+    {
+      "name": "polyester_blend",
+      "type": "fabric",
+      "properties": {
+        "roughness": 0.6,
+        "metallic": 0.0,
+        "normal_intensity": 0.3
+      }
+    }
+  ],
+  "default_colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF0000",
+    "#00FF00",
+    "#0000FF",
+    "#FFFF00",
+    "#FF00FF",
+    "#00FFFF",
+    "#808080",
+    "#800000",
+    "#008000",
+    "#000080"
+  ]
+}

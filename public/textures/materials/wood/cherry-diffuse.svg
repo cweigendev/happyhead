@@ -1,0 +1,17 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cherryGrain1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#A0522D;stop-opacity:1" />
+          <stop offset="30%" style="stop-color:#CD853F;stop-opacity:1" />
+          <stop offset="60%" style="stop-color:#DEB887;stop-opacity:1" />
+          <stop offset="90%" style="stop-color:#D2691E;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+        </linearGradient>
+        <pattern id="cherryGrain" x="0" y="0" width="10" height="512" patternUnits="userSpaceOnUse">
+          <rect width="10" height="512" fill="url(#cherryGrain1)"/>
+          <path d="M0,0 Q5,120 0,240 Q5,360 0,480 Q5,500 0,512" stroke="#8B4513" stroke-width="0.8" fill="none" opacity="0.7"/>
+        </pattern>
+      </defs>
+      <rect width="512" height="512" fill="#CD853F"/>
+      <rect width="512" height="512" fill="url(#cherryGrain)"/>
+    </svg>
