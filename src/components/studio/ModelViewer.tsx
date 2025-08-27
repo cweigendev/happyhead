@@ -7,7 +7,7 @@ import { Product } from '@/app/studio/page';
 import { layerManager, CustomizationLayer, LayerState } from '@/lib/layerManager';
 import { materialManager } from '@/lib/materialManager';
 import { modelStateManager, ModelState } from '@/lib/modelStateManager';
-import DraggableLogo from './DraggableLogo';
+
 import CameraHeightController from './CameraHeightController';
 
 import * as THREE from 'three';
@@ -994,28 +994,15 @@ const Model = React.memo(function Model({
     layerManager.updateLayer(layerId, { scale });
   };
 
-  // Get draggable layers (disabled - logos now map directly to mesh surface as overlays)
-  const draggableLayers = layerState.layers.filter(layer =>
-    false // Logos are now applied as mesh overlays, not draggable 3D objects
-  );
+
+
+  if (!scene) {
+    return null;
+  }
 
   return (
     <>
       <primitive object={scene} scale={modelScale} position={[0, 0, 0]} />
-
-      {/* Draggable Artwork/Logos */}
-      {draggableLayers.map((layer) => (
-        <DraggableLogo
-          key={layer.id}
-          url={layer.value}
-          position={layer.position ? [layer.position.x, layer.position.y, layer.position.z] : [0, 0, 1]}
-          scale={layer.scale || 0.5}
-          isSelected={selectedLogoId === layer.id}
-          onSelect={() => setSelectedLogoId(layer.id)}
-          onPositionChange={(position) => handleLogoPositionChange(layer.id, position)}
-          onScaleChange={(scale) => handleLogoScaleChange(layer.id, scale)}
-        />
-      ))}
     </>
   );
 }, (prevProps, nextProps) => {
