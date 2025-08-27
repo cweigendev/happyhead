@@ -1,10 +1,10 @@
 'use client';
 
 import React, { Suspense, useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Environment, Center, useTexture } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF, Environment, Center } from '@react-three/drei';
 import { Product } from '@/app/studio/page';
-import { layerManager, CustomizationLayer, LayerState } from '@/lib/layerManager';
+import { layerManager, LayerState } from '@/lib/layerManager';
 import { materialManager } from '@/lib/materialManager';
 import { modelStateManager, ModelState } from '@/lib/modelStateManager';
 
@@ -14,55 +14,7 @@ import * as THREE from 'three';
 
 // Model scaling is now handled by ModelStateManager - no hardcoded defaults
 
-// Auto-scale calculation for artwork based on image dimensions
-const calculateAutoScale = (imageWidth: number, imageHeight: number, aspectRatio: number, isLogo: boolean = false): number => {
-  // Different target coverage for logos vs artwork
-  const targetCoverage = isLogo ? 0.25 : 0.5; // Logos: 25% coverage, Artwork: 50% coverage
-  
-  // Size categories based on image resolution
-  const isLargeImage = Math.max(imageWidth, imageHeight) > 1000;
-  const isMediumImage = Math.max(imageWidth, imageHeight) > 500;
-  const isSmallImage = Math.max(imageWidth, imageHeight) <= 500;
-  
-  // Aspect ratio adjustments
-  const isVeryWide = aspectRatio > 2.0;   // Very wide images (panoramic)
-  const isVeryTall = aspectRatio < 0.5;   // Very tall images (portraits)
-  const isSquareish = aspectRatio >= 0.8 && aspectRatio <= 1.2;
-  
-  let autoScale = targetCoverage;
-  
-  // Logo-specific adjustments
-  if (isLogo) {
-    // Logos should generally be smaller and more conservative
-    autoScale *= 0.8; // Additional reduction for logos
-    
-    // Logo size adjustments based on resolution
-    if (isLargeImage) {
-      autoScale *= 0.9; // Large logos can be slightly smaller
-    } else if (isSmallImage) {
-      autoScale *= 1.1; // Small logos need to be more visible
-    }
-  } else {
-    // Artwork adjustments (existing logic)
-    if (isLargeImage) {
-      autoScale *= 1.2; // Make large images slightly bigger (more detail)
-    } else if (isSmallImage) {
-      autoScale *= 0.8; // Make small images smaller to avoid pixelation
-    }
-  }
-  
-  // Adjust based on aspect ratio
-  if (isVeryWide || isVeryTall) {
-    autoScale *= 0.7; // Extreme aspect ratios should be smaller
-  } else if (isSquareish) {
-    autoScale *= 1.1; // Square images can be slightly larger
-  }
-  
-  // Clamp to reasonable bounds
-  const minScale = isLogo ? 0.15 : 0.3; // Logos can be smaller
-  const maxScale = isLogo ? 1.0 : 1.5;   // Logos have lower max
-  return Math.max(minScale, Math.min(maxScale, autoScale));
-};
+
 
 interface ModelViewerProps {
   selectedProduct: Product | null;
@@ -96,7 +48,7 @@ const Model = React.memo(function Model({
   const [layerState, setLayerState] = useState<LayerState>({ layers: [], activeLayerId: null });
   const [loadedTextures, setLoadedTextures] = useState<Map<string, THREE.Texture>>(new Map());
   const [previewTexture, setPreviewTexture] = useState<THREE.Texture | null>(null);
-  const [selectedLogoId, setSelectedLogoId] = useState<string | null>(null);
+
   const [originalMaterials, setOriginalMaterials] = useState<Map<string, THREE.MeshStandardMaterial>>(new Map());
   const [modelScale, setModelScale] = useState<[number, number, number]>([1, 1, 1]); // Default until ModelStateManager provides the correct scale
 
@@ -982,17 +934,7 @@ const Model = React.memo(function Model({
     }
   }, [scene, layerState.layers, layerState.activeLayerId, loadedTextures, selectedColor, targetPart, previewTexture, selectedArtwork, hasColorChanged, originalMaterials, modelScale, reflectiveness]);
 
-  // Handle logo position updates
-  const handleLogoPositionChange = (layerId: string, position: [number, number, number]) => {
-    layerManager.updateLayer(layerId, {
-      position: { x: position[0], y: position[1], z: position[2] }
-    });
-  };
 
-  // Handle logo scale updates
-  const handleLogoScaleChange = (layerId: string, scale: number) => {
-    layerManager.updateLayer(layerId, { scale });
-  };
 
 
 
@@ -1145,11 +1087,10 @@ const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer(
             <pointLight position={[0, -2, 0]} intensity={0.4} color="#ffffff" />
             
             {/* Clean studio environment for product visualization */}
-            <Environment 
+            <Environment
               preset="studio"      // Clean studio HDRI without distracting elements
               background={false}   // Don't use as background, just for reflections
               blur={0.5}          // Moderate blur for subtle reflections
-              intensity={0.3}     // Reduced intensity for subtle reflections
               rotation={[0, Math.PI / 2, 0]}  // Rotate HDRI 90 degrees
             />
 
