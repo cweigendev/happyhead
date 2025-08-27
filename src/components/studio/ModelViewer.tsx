@@ -1077,7 +1077,6 @@ const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer(
               preset="studio"      // Clean studio HDRI without distracting elements
               background={false}   // Don't use as background, just for reflections
               blur={0.5}          // Moderate blur for subtle reflections
-              rotation={[0, Math.PI / 2, 0]}  // Rotate HDRI 90 degrees
             />
 
 
