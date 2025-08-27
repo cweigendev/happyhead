@@ -1,3 +1,12 @@
+# HappyHead Studio
+
+A 3D customization platform for packaging design and visualization.
+
+## ✅ Production Ready
+- Fixed all deployment issues
+- Serverless-compatible artwork generation
+- Optimized for Vercel deployment
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
