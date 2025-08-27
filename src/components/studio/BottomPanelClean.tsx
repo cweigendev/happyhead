@@ -120,7 +120,7 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
       layerManager.createLayer(layerName, 'artwork', targetPart, material.textureUrl);
     } else {
       // Fallback to color for non-textured materials
-      handleColorChange(material.color);
+      handleColorChange(material.color || '#ffffff');
     }
   };
 
