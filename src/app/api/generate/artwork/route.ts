@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fal } from "@fal-ai/client";
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
 
 // Configure fal.ai client with API key
 fal.config({
@@ -73,40 +71,24 @@ ${systemPrompt.final_instruction}`;
     }
 
     const generatedImageUrl = result.data.images[0].url;
-    
-    // Download the generated image
-    const imageResponse = await fetch(generatedImageUrl);
-    if (!imageResponse.ok) {
-      throw new Error('Failed to download generated image');
-    }
 
-    const imageBuffer = await imageResponse.arrayBuffer();
-    
-    // Create upload directory
+    // For Vercel deployment, we'll return the direct URL from fal.ai
+    // instead of trying to save to local filesystem (which doesn't work in serverless)
     const uploadSessionId = sessionId || `user-session-${Date.now()}`;
-    const uploadDir = join(process.cwd(), 'public', 'textures', 'user-uploads', 'artwork', uploadSessionId);
-    await mkdir(uploadDir, { recursive: true });
-
-    // Save the generated image
     const timestamp = Date.now();
     const fileName = `artwork_${timestamp}.png`;
-    const filePath = join(uploadDir, fileName);
-    
-    await writeFile(filePath, Buffer.from(imageBuffer));
-
-    // Return the public URL
-    const publicUrl = `/textures/user-uploads/artwork/${uploadSessionId}/${fileName}`;
 
     return NextResponse.json({
       success: true,
       message: 'Artwork generated successfully',
-      url: publicUrl,
+      url: generatedImageUrl, // Return the direct URL from fal.ai
       fileName: fileName,
       originalPrompt: prompt,
       enhancedPrompt: enhancedPrompt,
       seed: result.data.seed,
       generatedAt: new Date().toISOString(),
-      sessionId: uploadSessionId
+      sessionId: uploadSessionId,
+      note: 'Image hosted by fal.ai - no local storage in serverless environment'
     });
 
   } catch (error) {

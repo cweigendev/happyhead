@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,34 +31,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create upload directory
-    const uploadDir = join(process.cwd(), 'public', 'textures', 'user-uploads', 'logos', sessionId);
-    await mkdir(uploadDir, { recursive: true });
-
-    // Generate unique filename
-    const timestamp = Date.now();
-    const extension = file.name.split('.').pop();
-    const fileName = `logo_${timestamp}.${extension}`;
-    const filePath = join(uploadDir, fileName);
-
-    // Save file
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    await writeFile(filePath, buffer);
-
-    // Return the public URL
-    const publicUrl = `/textures/user-uploads/logos/${sessionId}/${fileName}`;
-
+    // In serverless environment, we can't save files to local filesystem
+    // For now, we'll return an error suggesting to use the artwork generation feature instead
     return NextResponse.json({
-      success: true,
-      message: 'Logo uploaded successfully',
-      url: publicUrl,
-      fileName: fileName,
-      originalName: file.name,
-      size: file.size,
-      uploadedAt: new Date().toISOString(),
-      type: 'logo'
-    });
+      error: 'File upload not supported in serverless environment',
+      suggestion: 'Use the AI artwork generation feature instead',
+      alternative: 'Generate logos with text prompts like "company logo with text" using the "Generate" button'
+    }, { status: 501 });
 
   } catch (error) {
     console.error('Logo upload error:', error);
