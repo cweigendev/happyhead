@@ -109,7 +109,7 @@ const BottomPanel: React.FC<BottomPanelProps> = ({
     onColorChange(color, selectedPart);
   };
 
-  const handleMaterialChange = (material: any) => {
+  const handleMaterialChange = (material: { textureUrl?: string; category?: string; name?: string }) => {
     // If material has a texture, create a layer with the texture
     if (material.textureUrl) {
       const partName = material.category === 'Wood' ? 'Top/Cap' : 'All Parts';

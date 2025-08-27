@@ -212,7 +212,7 @@ export class ModelStateManager {
   }
 
   // Store material state for a mesh
-  storeMaterialState(meshName: string, material: any): void {
+  storeMaterialState(meshName: string, material: THREE.Material): void {
     if (!this.currentState) {
       console.warn('⚠️ ModelStateManager: No current state to store material');
       return;
@@ -223,7 +223,7 @@ export class ModelStateManager {
   }
 
   // Get material state for a mesh
-  getMaterialState(meshName: string): any {
+  getMaterialState(meshName: string): THREE.Material | null {
     if (!this.currentState) {
       return null;
     }

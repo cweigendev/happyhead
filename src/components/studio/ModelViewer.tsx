@@ -91,12 +91,7 @@ const Model = React.memo(function Model({
 }) {
   console.log('🏗️ Model component RE-RENDERING with reflectiveness:', reflectiveness, 'for path:', modelPath); // Debug log
 
-  if (!modelPath) {
-    console.error('No model path provided');
-    return <ModelLoader />;
-  }
-
-  const { scene } = useGLTF(modelPath, true); // Enable DRACO compression for large files
+  // Initialize all hooks first, before any early returns
   const modelRef = useRef<THREE.Group>(null);
   const [layerState, setLayerState] = useState<LayerState>({ layers: [], activeLayerId: null });
   const [loadedTextures, setLoadedTextures] = useState<Map<string, THREE.Texture>>(new Map());
@@ -104,6 +99,15 @@ const Model = React.memo(function Model({
   const [selectedLogoId, setSelectedLogoId] = useState<string | null>(null);
   const [originalMaterials, setOriginalMaterials] = useState<Map<string, THREE.MeshStandardMaterial>>(new Map());
   const [modelScale, setModelScale] = useState<[number, number, number]>([1, 1, 1]); // Default until ModelStateManager provides the correct scale
+
+  // Conditionally load GLTF only if modelPath exists
+  const gltfResult = modelPath ? useGLTF(modelPath, true) : null; // Enable DRACO compression for large files
+  const scene = gltfResult?.scene;
+
+  if (!modelPath) {
+    console.error('No model path provided');
+    return <ModelLoader />;
+  }
 
   // Subscribe to layer changes
   useEffect(() => {
@@ -1040,7 +1044,7 @@ function ModelLoader() {
   );
 }
 
-const ModelViewer: React.FC<ModelViewerProps> = React.memo(({ selectedProduct, selectedColor, selectedArtwork, targetPart, hasColorChanged, reflectiveness = 0.5 }) => {
+const ModelViewer: React.FC<ModelViewerProps> = React.memo(function ModelViewer({ selectedProduct, selectedColor, selectedArtwork, targetPart, hasColorChanged, reflectiveness = 0.5 }) {
   console.log('🎯 ModelViewer received props:', { 
     product: selectedProduct?.name, 
     targetPart, 

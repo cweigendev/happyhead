@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree, ThreeEvent } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -41,7 +41,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({
   }, [texture]);
 
   // Handle mouse events
-  const handlePointerDown = (event: any) => {
+  const handlePointerDown = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setIsDragging(true);
     onSelect?.();
@@ -60,7 +60,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({
     }
   };
 
-  const handlePointerUp = (event: any) => {
+  const handlePointerUp = (event: ThreeEvent<PointerEvent>) => {
     setIsDragging(false);
 
     // Re-enable orbit controls
@@ -70,7 +70,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({
     }
   };
 
-  const handlePointerMove = (event: any) => {
+  const handlePointerMove = (event: ThreeEvent<PointerEvent>) => {
     if (isDragging && meshRef.current) {
       event.stopPropagation();
 

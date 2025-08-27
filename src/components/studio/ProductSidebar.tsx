@@ -3,6 +3,19 @@ import { Product } from '@/app/studio/page';
 import { modelManager } from '@/lib/modelManager';
 import { ButtonCta } from '@/components/ui/ButtonCta';
 
+interface ProductCategory {
+  id: string;
+  name: string;
+  description: string;
+  subcategories: Array<{
+    id: string;
+    name: string;
+    description: string;
+    config_file: string;
+    model_count: number;
+  }>;
+}
+
 interface ProductSidebarProps {
   onProductSelect: (product: Product) => void;
   selectedProduct: Product | null;
@@ -10,7 +23,7 @@ interface ProductSidebarProps {
 
 const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, selectedProduct }) => {
   const [expandedCategories, setExpandedCategories] = useState<string[]>(['glass-plastic-containers', 'apparel-clothing']);
-  const [productCategories, setProductCategories] = useState<any[]>([]);
+  const [productCategories, setProductCategories] = useState<ProductCategory[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +49,7 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
     );
   };
 
-  const handleSubcategoryClick = async (subcategory: any, categoryId: string) => {
+  const handleSubcategoryClick = async (subcategory: ProductCategory['subcategories'][0], categoryId: string) => {
     try {
       const models = await modelManager.getModelsByCategory(categoryId, subcategory.id);
       console.log('Loaded models:', models); // Debug log
@@ -117,7 +130,7 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({ onProductSelect, select
               {/* Subcategories List */}
               {expandedCategories.includes(category.id) && (
                 <div className="p-3 space-y-3" style={{ backgroundColor: '#0a0a0a' }}>
-                  {category.subcategories.map((subcategory: any) => (
+                  {category.subcategories.map((subcategory: ProductCategory['subcategories'][0]) => (
                     <div
                       key={subcategory.id}
                       className={`relative rounded-lg p-3 hover:bg-gray-700/50 transition-all duration-200 ${

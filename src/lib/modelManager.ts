@@ -1,5 +1,26 @@
 // Model Management Utilities for XTRACT Studio
 
+interface CatalogSubcategory {
+  id: string;
+  name: string;
+  description: string;
+  config_file: string;
+  model_count: number;
+}
+
+interface CatalogCategory {
+  id: string;
+  name: string;
+  description: string;
+  subcategories: CatalogSubcategory[];
+}
+
+interface Catalog {
+  categories: CatalogCategory[];
+  supported_formats: Record<string, string[]>;
+  upload_limits: Record<string, string | number>;
+}
+
 export interface ModelMetadata {
   id: string;
   name: string;
@@ -8,7 +29,7 @@ export interface ModelMetadata {
   subcategory: string;
   file: string;
   thumbnail: string;
-  specifications: Record<string, any>;
+  specifications: Record<string, string | number | boolean>;
   customization_areas: CustomizationArea[];
   created_at: string;
   updated_at: string;
@@ -46,7 +67,7 @@ export interface MaterialVariant {
 
 export class ModelManager {
   private static instance: ModelManager;
-  private catalog: any = null;
+  private catalog: Catalog | null = null;
 
   static getInstance(): ModelManager {
     if (!ModelManager.instance) {
@@ -70,14 +91,14 @@ export class ModelManager {
 
   async getModelsByCategory(categoryId: string, subcategoryId?: string): Promise<ModelMetadata[]> {
     const catalog = await this.loadCatalog();
-    const category = catalog.categories.find((cat: any) => cat.id === categoryId);
+    const category = catalog.categories.find((cat: CatalogCategory) => cat.id === categoryId);
     
     if (!category) {
       throw new Error(`Category ${categoryId} not found`);
     }
 
     if (subcategoryId) {
-      const subcategory = category.subcategories.find((sub: any) => sub.id === subcategoryId);
+      const subcategory = category.subcategories.find((sub: CatalogSubcategory) => sub.id === subcategoryId);
       if (!subcategory) {
         throw new Error(`Subcategory ${subcategoryId} not found`);
       }

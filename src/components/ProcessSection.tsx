@@ -99,7 +99,7 @@ const ProcessSection = () => {
                   <span className="text-orange-400">self.threshold</span> = threshold
                 </div>
                 <div className="text-gray-400 ml-8">
-                  <span className="text-orange-400">self.status</span> = <span className="text-green-400">"inactive"</span>
+                  <span className="text-orange-400">self.status</span> = <span className="text-green-400">&quot;inactive&quot;</span>
                 </div>
               </div>
             </div>

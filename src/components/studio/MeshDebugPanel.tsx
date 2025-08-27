@@ -21,6 +21,9 @@ interface MeshInfo {
 const MeshDebugPanel: React.FC<MeshDebugPanelProps> = ({ modelPath, selectedPart = 'all', targetPart = 'all' }) => {
   const [meshes, setMeshes] = useState<MeshInfo[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Load GLTF at component level (conditionally)
+  const gltfResult = modelPath ? useGLTF(modelPath) : null;
   
   // Enhanced detection logic (same as ModelViewer)
   const detectPartFromMeshName = (meshName: string): string => {
@@ -70,14 +73,14 @@ const MeshDebugPanel: React.FC<MeshDebugPanelProps> = ({ modelPath, selectedPart
 
   // Load and analyze model when path changes
   useEffect(() => {
-    if (!modelPath) {
+    if (!modelPath || !gltfResult) {
       setMeshes([]);
       return;
     }
 
     try {
-      // This will only work if the model is already loaded
-      const { scene } = useGLTF(modelPath);
+      // Use the pre-loaded GLTF result
+      const { scene } = gltfResult;
       
       const foundMeshes: MeshInfo[] = [];
       
@@ -98,7 +101,7 @@ const MeshDebugPanel: React.FC<MeshDebugPanelProps> = ({ modelPath, selectedPart
       console.error('Error analyzing model:', error);
       setMeshes([]);
     }
-  }, [modelPath]);
+  }, [modelPath, gltfResult]);
 
   if (!modelPath) {
     return null;
