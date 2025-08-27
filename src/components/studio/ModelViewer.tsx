@@ -1,7 +1,7 @@
 'use client';
 
-import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useRef, useEffect, useState } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, Center } from '@react-three/drei';
 import { Product } from '@/app/studio/page';
 import { layerManager, LayerState } from '@/lib/layerManager';
