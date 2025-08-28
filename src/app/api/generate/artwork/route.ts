@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fal } from "@fal-ai/client";
+import { put } from '@vercel/blob';
 
 // Configure fal.ai client with API key
 fal.config({
@@ -72,23 +73,46 @@ ${systemPrompt.final_instruction}`;
 
     const generatedImageUrl = result.data.images[0].url;
 
-    // For Vercel deployment, we'll return the direct URL from fal.ai
-    // instead of trying to save to local filesystem (which doesn't work in serverless)
+    // Download the generated image from Fal.ai
+    console.log('📥 Downloading image from Fal.ai:', generatedImageUrl);
+    const imageResponse = await fetch(generatedImageUrl);
+    if (!imageResponse.ok) {
+      throw new Error(`Failed to download image: ${imageResponse.status} ${imageResponse.statusText}`);
+    }
+
+    const imageBuffer = await imageResponse.arrayBuffer();
+
+    // Generate filename and path for Vercel Blob Storage
     const uploadSessionId = sessionId || `user-session-${Date.now()}`;
     const timestamp = Date.now();
     const fileName = `artwork_${timestamp}.png`;
+    const blobPath = `textures/user-uploads/artwork/${uploadSessionId}/${fileName}`;
+
+    // Upload to Vercel Blob Storage
+    console.log('☁️ Uploading to Vercel Blob Storage:', blobPath);
+    const blob = await put(blobPath, imageBuffer, {
+      access: 'public',
+      contentType: 'image/png',
+    });
+
+    console.log('✅ Image stored successfully:', blob.url);
 
     return NextResponse.json({
       success: true,
-      message: 'Artwork generated successfully',
-      url: generatedImageUrl, // Return the direct URL from fal.ai
+      message: 'Artwork generated and stored successfully',
+      url: blob.url, // Return the Vercel Blob Storage URL
+      originalUrl: generatedImageUrl, // Keep reference to original Fal.ai URL
       fileName: fileName,
       originalPrompt: prompt,
       enhancedPrompt: enhancedPrompt,
       seed: result.data.seed,
       generatedAt: new Date().toISOString(),
       sessionId: uploadSessionId,
-      note: 'Image hosted by fal.ai - no local storage in serverless environment'
+      storage: {
+        provider: 'vercel-blob',
+        path: blobPath,
+        size: imageBuffer.byteLength
+      }
     });
 
   } catch (error) {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { put } from '@vercel/blob';
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,13 +32,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In serverless environment, we can't save files to local filesystem
-    // For now, we'll return an error suggesting to use the artwork generation feature instead
+    // Generate filename and path for Vercel Blob Storage
+    const timestamp = Date.now();
+    const extension = file.name.split('.').pop();
+    const fileName = `logo_${timestamp}.${extension}`;
+    const blobPath = `textures/user-uploads/logos/${sessionId}/${fileName}`;
+
+    // Convert file to buffer
+    const bytes = await file.arrayBuffer();
+
+    // Upload to Vercel Blob Storage
+    console.log('☁️ Uploading logo to Vercel Blob Storage:', blobPath);
+    const blob = await put(blobPath, bytes, {
+      access: 'public',
+      contentType: file.type,
+    });
+
+    console.log('✅ Logo uploaded successfully:', blob.url);
+
     return NextResponse.json({
-      error: 'File upload not supported in serverless environment',
-      suggestion: 'Use the AI artwork generation feature instead',
-      alternative: 'Generate logos with text prompts like "company logo with text" using the "Generate" button'
-    }, { status: 501 });
+      success: true,
+      message: 'Logo uploaded successfully',
+      url: blob.url,
+      fileName: fileName,
+      originalName: file.name,
+      size: file.size,
+      uploadedAt: new Date().toISOString(),
+      type: 'logo',
+      storage: {
+        provider: 'vercel-blob',
+        path: blobPath
+      }
+    });
 
   } catch (error) {
     console.error('Logo upload error:', error);
